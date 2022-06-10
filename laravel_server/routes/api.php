@@ -10,6 +10,9 @@ use App\Http\Controllers\UserController;
 Route::group(['prefix' => 'admin'], function(){
     Route::post('/items', [AdminController::class, "addItems"]); 
     Route::post('/categories', [AdminController::class, "addCategories"]); 
+    Route::get('/items', [AdminController::class, "getItems"]); 
+    Route::get('/users', [AdminController::class, "getUsers"]); 
+    Route::get('/categories', [AdminController::class, "getCategories"]); 
 });
 
 Route::group(['prefix' => 'user'], function(){

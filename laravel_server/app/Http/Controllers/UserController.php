@@ -10,5 +10,16 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    //
+    // GET
+    public function getItems(Request $request)
+    {
+
+    }
+
+    // POST 
+    public function likeItems(Request $request)
+    {
+
+    }
+
 }
