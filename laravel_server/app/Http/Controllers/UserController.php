@@ -35,4 +35,10 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function notFound(){
+        return response()->json([
+            "status" => "Failure",
+            "message" => "Unauthorized"
+        ], 404);
+    }
 }
