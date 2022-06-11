@@ -13,13 +13,14 @@ class UserController extends Controller
     // GET
     public function getItems(Request $request)
     {
-        $category_name=$request->id;
-        $items = Category::where('id', '=', $category_name)
-        ->get();
-        return response()->json([
-            "status" => "success",
-            "items" => $items
-        ], 200);
+        $category_name=$request->category_name;
+        $cat_info=Category::where('category_name', $category_name)->get();
+        $cat_info=$cat_info[0];
+        return $cat_info;
+        // return response()->json([
+        //     "status" => "success",
+        //     "items" => $items
+        // ], 200);
     }
 
     // POST 

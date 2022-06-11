@@ -18,7 +18,6 @@ Route::group(['prefix' => 'v1'], function(){
     
     Route::group(['prefix' => 'user'], function(){
         Route::group(['middleware' => 'user.auth'], function(){
-            Route::get('/items', [UserController::class, "getItems"]); 
             Route::post('/like-items', [UserController::class, "likeItems"]); 
 
             Route::post('/logout', [JWTController::class, 'logout']);
@@ -26,6 +25,9 @@ Route::group(['prefix' => 'v1'], function(){
             Route::post('/profile', [JWTController::class, 'profile']);
         });
         Route::post('/register', [JWTController::class, 'register']);
+        
+        Route::get('/items', [UserController::class, "getItems"]); 
+
     });
 
     Route::post('/login', [JWTController::class, 'login']);
