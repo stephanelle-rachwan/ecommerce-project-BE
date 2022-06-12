@@ -23,6 +23,15 @@ class UserController extends Controller
         // ], 200);
     }
 
+    public function displayItems(Request $request)
+    {
+        $items = Item::all();
+        return response()->json([
+            "status" => "success",
+            "items" => $items
+        ], 200);
+    }
+
     // POST 
     public function likeItems(Request $request)
     {

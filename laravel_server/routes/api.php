@@ -27,6 +27,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/register', [JWTController::class, 'register']);
         
         Route::get('/items', [UserController::class, "getItems"]); 
+        Route::get('/all-items', [UserController::class, "displayItems"]); 
 
     });
 
