@@ -28,6 +28,7 @@ Route::group(['prefix' => 'v1'], function(){
         
         Route::get('/items', [UserController::class, "getItems"]); 
         Route::get('/all-items', [UserController::class, "displayItems"]); 
+        Route::get('/all-categories', [UserController::class, "displayCategories"]); 
 
     });
 

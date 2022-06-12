@@ -32,6 +32,15 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function displayCategories(Request $request)
+    {
+        $categories = Category::all();
+        return response()->json([
+            "status" => "success",
+            "categories" => $categories
+        ], 200);
+    }
+
     // POST 
     public function likeItems(Request $request)
     {
