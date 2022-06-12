@@ -33,5 +33,4 @@ Route::group(['prefix' => 'v1'], function(){
     Route::post('/login', [JWTController::class, 'login']);
     Route::get('/not_found', [UserController::class, 'notFound'])->name("not-found");
 
-    // testing commits
 });
