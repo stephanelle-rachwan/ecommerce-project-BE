@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Item;
 use App\Models\Like;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 { 
 
@@ -63,5 +63,11 @@ class AdminController extends Controller
             "status" => "success",
             "categories" => $categories
         ], 200);
+    }
+
+    public function login (Request $request){
+        $email=$request->email;
+        return  User::where("email",$email)->get();
+       
     }
 }
