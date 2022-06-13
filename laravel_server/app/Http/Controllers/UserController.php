@@ -14,13 +14,14 @@ class UserController extends Controller
     public function getItems(Request $request)
     {
         $category_name=$request->category_name;
-        $cat_info=Category::where('category_name', $category_name)->get();
-        $cat_info=$cat_info[0];
-        return $cat_info;
-        // return response()->json([
-        //     "status" => "success",
-        //     "items" => $items
-        // ], 200);
+        $cat_info = Category::where('category_name', $category_name)->get();
+        $cat_id = $cat_info[0]["id"];
+
+        $items = Item::where('category_id', $cat_id) -> get();    
+        return response()->json([
+            "status" => "success",
+            "items" => $items
+        ], 200);
     }
 
     public function displayItems(Request $request)

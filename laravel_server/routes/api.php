@@ -20,7 +20,6 @@ Route::group(['prefix' => 'v1'], function(){
     Route::group(['prefix' => 'user'], function(){
         Route::group(['middleware' => 'user.auth'], function(){
             Route::post('/like-items', [UserController::class, "likeItems"]); 
-            Route::get('/items', [UserController::class, "getItems"]); 
             Route::post('/logout', [JWTController::class, 'logout']);
             Route::post('/refresh', [JWTController::class, 'refresh']);
             Route::post('/profile', [JWTController::class, 'profile']);
@@ -29,6 +28,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/all-items', [UserController::class, "displayItems"]); 
         Route::get('/all-categories', [UserController::class, "displayCategories"]); 
 
+        Route::get('/items', [UserController::class, "getItems"]); 
     });
 
     Route::post('/login', [JWTController::class, 'login']);
